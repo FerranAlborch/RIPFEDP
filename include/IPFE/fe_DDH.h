@@ -33,14 +33,14 @@
 */
 typedef struct fe_DDH {
     size_t l; /**< Dimension of the input vector and function. */
-    mpz_t bound_X; 
-    mpz_t bound_Y;
-    mpz_t g;
-    mpz_t h;
-    FCombInt *F;
-    mpz_t p;
-    mpz_t phi_p;
-    mpz_t q;
+    mpz_t bound_X; /**< Bound for the input plaintexts. */
+    mpz_t bound_Y; /**< Bound for the functions. */
+    mpz_t g; /**< Generator g of the group. */
+    mpz_t h; /**< Generator h of the group (different from g). */
+    FCombInt *F; /**< Precomputations for the fixed-comb method for fast exponentiation. */
+    mpz_t p; /**< Prime order of the group (safe prime). */
+    mpz_t phi_p; /**< Number of non-zero elements in the group. */
+    mpz_t q; /**< Prime (p-1)/2 (since p is a safe prime). */
 } fe_DDH;
 
 /**
@@ -48,8 +48,8 @@ typedef struct fe_DDH {
 * \brief It represents a master secret key of the inner-product scheme.
 */
 typedef struct fe_DDH_sec_key {
-    mpz_t seed_s;
-    mpz_t seed_t;
+    mpz_t seed_s; /**< Seed for s in the master secret key. */
+    mpz_t seed_t; /**< Seed for t in the master secret key. */
 } fe_DDH_sec_key;
 
 /**
@@ -57,7 +57,7 @@ typedef struct fe_DDH_sec_key {
 * \brief It represents a functional decryption key of the inner-product scheme.
 */
 typedef struct fe_DDH_fe_key {
-    mpz_t *sy_ty;
+    mpz_t *sy_ty; /**< An array containing <s,y> and <t,y>. */
 } fe_DDH_fe_key;
 
 /**
@@ -65,9 +65,9 @@ typedef struct fe_DDH_fe_key {
 * \brief It represents a ciphertext of the inner-product scheme.
 */
 typedef struct fe_DDH_ciphertext {
-    mpz_t *C_D;
-    mpz_t *E;
-    size_t l;
+    mpz_t *C_D; /**< Array containing C and D. */
+    mpz_t *E; /**< Array containing E. */
+    size_t l; /**< Size of the array E. */
 } fe_DDH_ciphertext;
 
 /**

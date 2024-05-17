@@ -23,9 +23,7 @@
 #include "utils/rand.h"
 
 
-/**
- * Sample a one-sided geometric with p >= 1/3
-*/
+
 void geometric_search(mpz_t e, double p) {
     
     double r, sum, prod, q;
@@ -44,9 +42,7 @@ void geometric_search(mpz_t e, double p) {
     return;
 }
 
-/**
- * Sample a one-sided geometric with p < 1/3
-*/
+
 void geometric_inversion(mpz_t e, double p) {
 
     double r = (double) rand()/ (double) RAND_MAX;
@@ -56,9 +52,7 @@ void geometric_inversion(mpz_t e, double p) {
     return;
 }
 
-/**
- * Sample a discrete one-sided geometric distribution
-*/
+
 void sample_one_sided_geometric(mpz_t e, double p) {
 
     // Two different algorithms depending on how big p is
@@ -68,9 +62,7 @@ void sample_one_sided_geometric(mpz_t e, double p) {
 }
 
 
-/**
- * Function for sampling a discrete double geometric distribution using the same algorithm as numpy
-*/
+
 void sample_geometric(mpz_t e, double epsilon, mpz_t bound_Y, int Q) {
     
     // Compute value p = exp(-epsilon/(Q*bound_Y))
@@ -106,9 +98,7 @@ void sample_geometric(mpz_t e, double epsilon, mpz_t bound_Y, int Q) {
     return;
 }
 
-/**
-* Function to generate a secure mpz seed for random number generation of size size_t * 64 
-*/
+
 void generate_seed(mpz_t result, size_t seed_size) {
     // Generate secure seed of size seed_size * 64
     int fd = open("/dev/urandom", O_RDONLY);

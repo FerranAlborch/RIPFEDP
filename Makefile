@@ -34,7 +34,6 @@ INCLUDE_DIR = include
 
 # External libraries
 EXT_LIB = -lgmp -lm 
-#EXT_LIB += -lcifer
 # EXT_LIB += -fopenmp
 
 # Build all target

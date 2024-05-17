@@ -19,9 +19,7 @@
 #include <stdbool.h>
 #include "utils/FComb.h"
 
-/**
- * Auxiliary functions to aid dealing with finding bits inside bytes
-*/
+
 int getbit(unsigned char b, int ind) {
 
     if (ind > 7) {
@@ -59,6 +57,7 @@ int getbit(unsigned char b, int ind) {
     }
 }
 
+
 int getbitTab(unsigned char* b, int ind) {
     int indtab = ind / 8;
     //int indbit=ind-indtab;
@@ -70,6 +69,7 @@ int getbitTab(unsigned char* b, int ind) {
 
     return getbit(b[indtab], indbit);
 }
+
 
 int setbit(int b, const int ind) {
 
@@ -95,6 +95,7 @@ int setbit(int b, const int ind) {
     return b;
 }
 
+
 int setBitvalue(int num, int ind, int isset) {
     if (isset == 1) {
         return setbit(num, ind);
@@ -104,6 +105,7 @@ int setBitvalue(int num, int ind, int isset) {
         return num;
     }
 }
+
 
 int clearbit(int b, const int ind) {
 
@@ -128,6 +130,7 @@ int clearbit(int b, const int ind) {
     return b;
 }
 
+
 bool isBitSet(int b, const int ind) {
     unsigned int _masks_int [] = {0x80000000, 0x40000000, 0x20000000, 0x10000000,
         0x08000000, 0x04000000, 0x02000000, 0x01000000, 0x00800000, 0x00400000, 0x00200000,
@@ -151,9 +154,7 @@ bool isBitSet(int b, const int ind) {
     }
 }
 
-/**
- * Auxiliary function to compute the ceiling of a double
-*/
+
 int ceiling(double n) {
     int nint = (int) n;
 
@@ -164,9 +165,7 @@ int ceiling(double n) {
     }
 }
 
-/**
- * Function to initialize FComb exponent array
-*/
+
 void FCombExponentArray_init(FCombExponentArray *EAi, mpz_t number, int a, int h, int v, int b) {
 
     EAi->a = a;
@@ -240,17 +239,13 @@ void FCombExponentArray_init(FCombExponentArray *EAi, mpz_t number, int a, int h
 
 }
 
-/**
- * Function to free FComb exponent array
-*/
+
 void FCombExponentArray_free(FCombExponentArray *EA) {
     free(EA->ea_int);
 }
 
 
-/**
- * Auxiliary function to square an array
-*/
+
 void getSquareArray(mpz_t squareArray[], mpz_t base, mpz_t modulo, int nbSquare) {
     mpz_set(squareArray[0], base);
     for (int i = 1; i < nbSquare; i++) {
@@ -258,9 +253,7 @@ void getSquareArray(mpz_t squareArray[], mpz_t base, mpz_t modulo, int nbSquare)
     }
 }
 
-/**
- * Function to preallocate the space for FComb
-*/
+
 void FCombInt_alloc(FCombInt *F, mpz_t modulo, mpz_t baseExpo, int lengthexpo, int hparam, int vparam) {
     // Allocate the memory
     F->n = lengthexpo;
@@ -292,9 +285,7 @@ void FCombInt_alloc(FCombInt *F, mpz_t modulo, mpz_t baseExpo, int lengthexpo, i
     }
 }
 
-/**
- * Function to initialize the precomputations for FComb
-*/
+
 void FCombInt_init(FCombInt *F) {
 
     // computation of the g_i
@@ -361,9 +352,7 @@ void FCombInt_init(FCombInt *F) {
 
 }
 
-/**
- * Function to free the precomputations for FComb
-*/
+
 void FCombInt_free(FCombInt *F) {
     mpz_clears(F->g, F->modulo, NULL);
     for (int i = 0; i < F->v; i++) {
@@ -377,9 +366,7 @@ void FCombInt_free(FCombInt *F) {
 }
 
 
-/**
- * Function to compute the multi-exponentiation of two bases with f-comb precomputations
-*/
+
 void FComb_multiMult(mpz_t result, FCombInt * precomps, mpz_t * expos, int nbElems) {
 
     int a = precomps[0].a;

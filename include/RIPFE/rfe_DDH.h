@@ -29,9 +29,9 @@
 * \brief It represents the public parameters of the randomized inner-product scheme. 
 */
 typedef struct rfe_DDH {
-    fe_DDH s;
-    float epsilon;
-    int Q;
+    fe_DDH s; /**< Public parameters of the non-randomized scheme. */
+    float epsilon; /**< Privacy budget for the scheme. */
+    int Q; /**< Number of functional key queries allowed. */
 } rfe_DDH;
 
 /**
@@ -39,8 +39,8 @@ typedef struct rfe_DDH {
 * \brief It represents a master secret key of the randomized inner-product scheme.
 */
 typedef struct rfe_DDH_sec_key {
-    fe_DDH_sec_key msk;
-    mpz_t seed_u;
+    fe_DDH_sec_key msk; /**< Master secret key of the non-randomized scheme. */
+    mpz_t seed_u; /**< One-time pad u. */
 } rfe_DDH_sec_key;
 
 /**
@@ -48,9 +48,9 @@ typedef struct rfe_DDH_sec_key {
 * \brief It represents a functional decryption key of the randomized inner-product scheme.
 */
 typedef struct rfe_DDH_fe_key {
-    fe_DDH_fe_key fe_key;
-    mpz_t d;
-    mpz_t zk;
+    fe_DDH_fe_key fe_key; /**< Functional decryption key of the non-randomized scheme. */
+    mpz_t d; /**< Padded differentially private noise. */
+    mpz_t zk; /**< Extra terms. */
 } rfe_DDH_fe_key;
 
 /**

@@ -18,17 +18,8 @@
 #include "config.h"
 
 
-// To compile run gcc main.c functions.c rfe_damgard.c -o main.out -lgmp -lm -lcifer
 
-// To execute run ./main.out l Q log2(X) log2(Y)
-
-
-//#define LOOP 1
-
-
-/**
- * Function for the SetUp of the scheme. Includes initialization of the scheme and generation of the master secret key
-*/
+// Function for the SetUp of the scheme. Includes initialization of the scheme and generation of the master secret key
 bool SetUp(rfe_DDH *S, rfe_DDH_sec_key *MSK, double timesSetUp[]) {
 
     // Generate the master secret key and the precomputations for FComb
@@ -37,9 +28,8 @@ bool SetUp(rfe_DDH *S, rfe_DDH_sec_key *MSK, double timesSetUp[]) {
     return true;
 }
 
-/**
- * Function for encryption of a database
-*/
+
+// Function for encryption of a database
 bool Encrypt(rfe_DDH *S, fe_DDH_ciphertext *c, mpz_t *x, rfe_DDH_sec_key *MSK, double timesEnc[]) {
     bool err = rfe_DDH_encrypt(c, S, x, MSK, timesEnc);
     if (!err) {
@@ -51,9 +41,8 @@ bool Encrypt(rfe_DDH *S, fe_DDH_ciphertext *c, mpz_t *x, rfe_DDH_sec_key *MSK, d
 }
 
 
-/**
- * Function for the key derivation
-*/
+
+// Function for the key derivation
 bool KeyGen(rfe_DDH_fe_key *FE_key, rfe_DDH *S, rfe_DDH_sec_key *MSK, mpz_t *y, mpz_t e_verification, double timesKeyGen[]) {
     bool err = rfe_DDH_derive_fe_key(FE_key, S, MSK, y, e_verification, timesKeyGen);
     if (!err) {
@@ -65,9 +54,7 @@ bool KeyGen(rfe_DDH_fe_key *FE_key, rfe_DDH *S, rfe_DDH_sec_key *MSK, mpz_t *y, 
 }
 
 
-/**
- * Function for the decryption
-*/
+// Function for the decryption
 bool Decrypt(mpz_t result, rfe_DDH *S, fe_DDH_ciphertext *ciphertext, rfe_DDH_fe_key *FE_key, mpz_t *y, double timesDec[]) {
     bool err = rfe_DDH_decrypt(result, S, ciphertext, FE_key, y, timesDec);
     if (!err) {
@@ -243,9 +230,7 @@ int main(int argc, char *argv[]) {
         gmp_randclear(state_u);
         for(size_t i = 0; i < S.s.l; ++i) {
             mpz_mul(aux, x[i], y[i]);
-            //mpz_mod(aux, aux, S.s.p);
             mpz_add(expected, expected, aux);
-            //mpz_mod(expected, expected, S.s.p);
 
             mpz_add(aux, x[i], u[i]);
             mpz_mod(aux, aux, S.s.p);
@@ -256,7 +241,6 @@ int main(int argc, char *argv[]) {
         free(u);
 
         mpz_sub(aux, FE_key.d, FE_key.zk);
-        //mpz_mod(aux, aux, S.s.p);
         mpz_add(verification_dec, verification_dec, aux);
 
         mpz_clear(aux);
@@ -351,13 +335,11 @@ int main(int argc, char *argv[]) {
     printf("\n");
     printf("Sizes:\n");
     size_t p_bytes = MODULUS_LEN/8;
-    // printf("Bytes of prime order = %ldB\n", p_bytes);
 
     // Database size: vector of l elements bounded by bound_X
     int padding_bits = bits_X % 64;
     padding_bits = 64 - padding_bits;
     bits_X = bits_X + padding_bits;
-    // printf("Bits of X: %d\n", bits_X);
     int bytes_X = bits_X/8;
     size_t size_database = bytes_X * l;
     if (size_database > 1024*1024) {
@@ -401,8 +383,6 @@ int main(int argc, char *argv[]) {
     }
     else printf("Functional decryption key size: %ldB\n", size_fe_key);
     printf("\n");
-
-    //printf("Master secret key size: %dB\nCiphertext size: %dB\nFunctional decryption key size: %dB\n", size_msk, size_ciphertext, size_fe);
 
     // we clear the memory
     mpz_clears(bound_X, bound_Y, NULL);

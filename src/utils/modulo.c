@@ -20,9 +20,7 @@
 #include "utils/modulo.h"
 
 
-/**
- *Function for adding two mpz modulo a number
-*/
+
 void mpz_add_mod(mpz_t res, mpz_t a, mpz_t b, mpz_t modulo) {
     mpz_add(res, a, b);
     if(mpz_cmp(res, modulo) < 0) return;
@@ -32,9 +30,7 @@ void mpz_add_mod(mpz_t res, mpz_t a, mpz_t b, mpz_t modulo) {
     }
 }
 
-/**
-* Function for substracting two mpz modulo a number
-*/
+
 void mpz_sub_mod(mpz_t res, mpz_t a, mpz_t b, mpz_t modulo) {
     mpz_sub(res, a, b);
     if(mpz_cmp(res, 0) >= 0) return;

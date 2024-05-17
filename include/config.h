@@ -11,16 +11,37 @@
 */
 
 
-// LOOP defines how many times the experiment is performed to average afterwards
+/**
+* \file Configuration
+* \brief This file contains the configuration values for the schemes.
+*/
+
+
+/**
+* \def LOOP
+* \brief It defines how many times the experiment is performed to average afterwards.
+*/
 #define LOOP 10
 
-// SEED_SIZE defines how long the secure randomness seeds will be, they are SEED_SIZE * 64 bits
+
+/**
+* \def SEED_SIZE
+* \brief It defines how long the secure randomness seeds will be, they are SEED_SIZE * 64 bits.
+*/
 #define SEED_SIZE 4
 
-// MODULUS_LEN defines the security of the scheme, the higher the better
-// for precomputed parameters it needs to be in {1024, 1536, 2048, 2560, 3072, 4096}
+
+/**
+* \def MODULUS_LEN
+* \brief It defines the security of the scheme, the higher the better. It needs to be in 
+* {1024, 1536, 2048, 2560, 3072, 4096} for precomputed values.
+*/
 #define MODULUS_LEN 3072
 
-// EPSILON defines the privacy budget of the scheme
+
+/**
+* \def EPSILON
+* \brief It defines the privacy budget of the scheme.
+*/
 #define EPSILON 0.1
 

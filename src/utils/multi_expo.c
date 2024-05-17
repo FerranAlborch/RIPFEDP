@@ -20,9 +20,7 @@
 #include "utils/multi_expo.h"
 #include "utils/wNAF.h"
 
-/**
- * Function for getting the biggest bit size in an array of mpz_t elements
-*/
+
 int get_biggest_bit_size(mpz_t *array, int length) {
     int biggest_bit_size = 0;
     for (int i = 0; i < length; i++)
@@ -37,9 +35,7 @@ int get_biggest_bit_size(mpz_t *array, int length) {
     return biggest_bit_size;
 }
 
-/**
- * Function to get the optimal value of w depending on the bit size
-*/
+
 int getOptimalWVal(int m) {
     if(m<13) return 2;
     if(m<41) return 3;
@@ -51,9 +47,7 @@ int getOptimalWVal(int m) {
 }
 
 
-/**
- * Function to do the precomputation for the multi exponentiation
-*/
+
 void multi_exponentiation_precomputation(mpz_t **gE, mpz_t *g, unsigned int g_size, int w[], mpz_t mod) {
 
     size_t k = g_size;
@@ -99,9 +93,7 @@ void multi_exponentiation_precomputation(mpz_t **gE, mpz_t *g, unsigned int g_si
 }
 
 
-/**
- * Function to free the precomputation
-*/
+
 void freePrecomp(mpz_t **matrix, unsigned int rows, unsigned int cols) {
     for (unsigned int i = 0; i < rows; i++)
     {
@@ -116,9 +108,7 @@ void freePrecomp(mpz_t **matrix, unsigned int rows, unsigned int cols) {
 }
 
 
-/**
- * Function for multiple exponentiation, base on the wNAF-based interleaving exponentiation method
-*/
+
 void multiple_exponentiation(mpz_t result, size_t l, mpz_t *bases, mpz_t *exponents, mpz_t modulo) {
     
     

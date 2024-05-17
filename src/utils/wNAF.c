@@ -19,9 +19,7 @@
 #include <stdbool.h>
 #include "utils/wNAF.h"
 
-/**
- * Function for computing the wNAF representation
-*/
+
 void computewNAFRepresentation(wNAFRepresentation *naf, mpz_t num, int w) {
     int pow2wB = (1 << w);
        
@@ -63,9 +61,6 @@ void computewNAFRepresentation(wNAFRepresentation *naf, mpz_t num, int w) {
 }
 
 
-/**
- * Function to free the wNAF representation
-*/
 void freeNAF(wNAFRepresentation * naf) {
     free(naf->naf);
 }
