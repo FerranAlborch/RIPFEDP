@@ -1,0 +1,32 @@
+Times:
+Total SetUp time: 2.043160s, of which
+    Time for sampling each seed: 0.000002s * 3
+    Time for doing FComb precomputations: 1.021569s * 2
+
+Total Encryption time: 0.146117s, of which
+    Time for computing C (and D): 0.000871s * 2
+    Time for computing E: 0.143868s
+
+Total Key Generation time: 0.001010s, of which
+    Time for computing d_y: 0.000244s
+    Time for computing zk_y: 0.000248s
+    Time for computing the inner product: 0.000011s * 2
+
+Total Decryption time: 0.417702s, of which
+    Time for computing large multiexponentiation in numerator: 0.000989s
+    Time for computing little multiexponentiation in denominator: 0.008298s
+    Time for computing the division: 0.000026s
+    Time for computing the extra exponentiation: 0.000842s
+    Time for computing the discrete logarithm: 0.407543s
+
+
+
+Sizes:
+Database size: 800B
+
+Master secret key size: 96B
+
+Ciphertext size: 38KB
+
+Functional decryption key size: 1KB
+
