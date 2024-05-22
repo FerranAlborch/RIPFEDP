@@ -1,0 +1,87 @@
+# Ignore object files, shared libraries, and static libraries
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+
+# Ignore executables
+*.exe
+*.out
+*.app
+
+# Ignore build directories
+/build/
+/bin/
+/obj/
+/Debug/
+/Release/
+/dist/
+/__pycache__/
+
+# Ignore temporary files
+*~
+*.swp
+*.swo
+
+# Ignore dependency files
+*.d
+
+# Ignore generated files
+*.log
+*.tmp
+*.temp
+*.cache
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+
+# Ignore directories created by IDEs and editors
+/.idea/
+/.vscode/
+/.clion/
+/.ecllipse/
+/.project
+.cproject
+.settings/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*.bak
+*.old
+*.orig
+
+# Ignore test executables
+/tests/*.exe
+/tests/*.out
+/tests/*.o
+/tests/*.so
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore autotools generated files
+/configure
+/config.log
+/config.status
+/autom4te.cache/
+/aclocal.m4
+/compile
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+
+# Ignore coverage reports
+/lcov-report/
+/coverage/
+/*.gcda
+/*.gcno
+/*.gcov
