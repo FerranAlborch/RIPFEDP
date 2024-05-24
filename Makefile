@@ -22,7 +22,7 @@ BIN = $(PROJECT)
 
 # Source directory
 SOURCE = $(shell find src -type f | grep '\.c$$')
-SOURCE += main.c
+SOURCE += test.c
 CPPSOURCE = $(shell find src -type f | grep '\.cpp$$')
 
 # Object files 

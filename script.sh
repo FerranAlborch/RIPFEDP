@@ -15,14 +15,14 @@
 # Install library?
 
 # Compile the code
-make
+# make
 
 # Execute the code for the preselected values
-./RFEDP 10 16 24 7 > Output1.txt
-./RFEDP 100 16 21 7 > Output2.txt
-./RFEDP 1000 16 18 7 > Output3.txt
-./RFEDP 10000 16 16 7 > Output4.txt
-./RFEDP 100000 16 16 7 > Output5.txt
-./RFEDP 1000000 16 16 7 > Output6.txt
+./RFEDP 10 16 24 7 > results/Output1.txt
+./RFEDP 100 16 21 7 > results/Output2.txt
+./RFEDP 1000 16 18 7 > results/Output3.txt
+./RFEDP 10000 16 16 7 > results/Output4.txt
+./RFEDP 100000 16 16 7 > results/Output5.txt
+./RFEDP 1000000 16 16 7 > results/Output6.txt
 
 make clean
