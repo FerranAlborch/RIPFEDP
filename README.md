@@ -90,6 +90,6 @@ To perform the analysis that gave the results published in the paper run the com
 ```
 script.sh
 ```
-which will test for the specific parameters of the paper different $\ell$, from 10 to 1 000 000. The results will be output to ```results/OuptutK.txt``` for each $\ell=10^K$.
+which will test for the specific parameters of the paper different $\ell$, from 10 to 1 000 000. The results will be output to ```results/OutputK.txt``` for each $\ell=10^K$.
 
 **Note:** We used a laptop with Ubuntu 22.04, Intel i7-1365U (3.9 GHz) and 32 GB of RAM to run our code. It required about **missing** of memory and about 4 hors and 30 minutes.
