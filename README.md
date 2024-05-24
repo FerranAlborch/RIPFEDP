@@ -67,7 +67,7 @@ To run the code for a test for the full RIPFE scheme use the following command
 ```
 ./RFEDP l Q |X| |Y|
 ```
-where $\ell,Q,|X|,|Y|$ are positive integers for the several parameters of the scheme. For a thorough explanation we refer to Section 6.2 of the paper. We also recommend looking into the ```include/config.h``` file to see the global parameters of the scheme.
+where $\ell,Q,|X|,|Y|$ are positive integers representing the several parameters of the scheme. For a thorough explanation we refer to Section 6.2 of the paper. We also recommend looking into the ```include/config.h``` file to see the global parameters of the scheme.
 
 **Note:** As commented in Section 6.2 of the paper it is important that for whatever set of parameters is used, the inequality
 
