@@ -1,4 +1,4 @@
-# RFEDP
+# RIPFEDP - Randomized Inner Product Functional Encryption for Differential Privacy
 This repository contains the source code for the evaluation times from the randomized inner product functional encryption scheme in the paper **Computational Differential Privacy for Encrypted Databases Supporting Linear Queries** accepted at Proceedings on Privacy Enhancing Technologies (PoPETs), Issue 4, 2024. 
 
 # Description
@@ -92,4 +92,4 @@ script.sh
 ```
 which will test for the specific parameters of the paper different $\ell$, from 10 to 1 000 000. The results will be output to ```results/OutputK.txt``` for each $\ell=10^K$.
 
-**Note:** We used a laptop with Ubuntu 22.04, Intel i7-1365U (3.9 GHz) and 32 GB of RAM to run our code. It required about **missing** of memory and about 4 hors and 30 minutes.
+**Note:** We used a laptop with Ubuntu 22.04, Intel i7-1365U (3.9 GHz) and 32 GB of RAM to run our code. It required about 2GB of memory and about 4 hours and 30 minutes.
