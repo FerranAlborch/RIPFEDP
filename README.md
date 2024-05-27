@@ -50,7 +50,7 @@ make release
 
 1. Install Docker.
 ```
-sudo apt install docker.io
+sudo apt-get install docker.io
 sudo snap install docker
 ```
 
