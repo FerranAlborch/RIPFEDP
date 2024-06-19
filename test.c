@@ -119,11 +119,13 @@ int main(int argc, char *argv[]) {
 
 
     for (int i = 0; i < LOOP; ++i) {
+        fprintf(stderr,"LOOP %d: ", i+1);
+
         // Initialize public parameters
         rfe_DDH S;
         bool err = rfe_DDH_precomp_init(&S, l, bound_X, Q, bound_Y);
         if (!err) {
-            printf("ERROR in initialization of RIPFE.\n");
+            fprintf(stderr,"SetUp ERROR\n");
             return 0;
         }
 
@@ -136,11 +138,12 @@ int main(int argc, char *argv[]) {
         err = SetUp(&S, &MSK, timesSetUp);
         end = clock();
         if (!err) {
-            printf("ERROR in SetUp phase.\n");
+            fprintf(stderr,"SetUp ERROR\n");
             return 0;
         }
         timeSetUp = timeSetUp + (double)(end - begin) / CLOCKS_PER_SEC;
         //printf("Finished SetUp\n");
+        fprintf(stderr,"SetUp OK; ");
 
 
         // Initialize plaintext
@@ -170,11 +173,12 @@ int main(int argc, char *argv[]) {
         err = Encrypt(&S, &c, x, &MSK, timesEnc);
         end = clock();
         if (!err) {
-            printf("ERROR in Encryption phase.\n");
+            fprintf(stderr,"Encryption ERROR\n");
             return 0;
         }
         timeEncrypt = timeEncrypt + (double)(end - begin) / CLOCKS_PER_SEC;
         //printf("Finished Encryption\n");
+        fprintf(stderr,"Encryption OK; ");
 
 
         // Initialize query
@@ -207,11 +211,12 @@ int main(int argc, char *argv[]) {
         err = KeyGen(&FE_key, &S, &MSK, y, e_verification, timesKeyGen);
         end = clock();
         if (!err) {
-            printf("ERROR in Key Generation phase.\n");
+            fprintf(stderr,"Key Generation ERROR\n");
             return 0;
         }
         timeKeyGen = timeKeyGen + (double)(end - begin) / CLOCKS_PER_SEC;
         //printf("Finished KeyGen\n");
+        fprintf(stderr,"Key Generation OK; ");
         
 
         // Initialize values for verification
@@ -261,11 +266,12 @@ int main(int argc, char *argv[]) {
         err = Decrypt(result, &S, &c, &FE_key, y, timesDec);
         end = clock();
         if (!err) {
-            printf("ERROR in Decryption phase.\n");
+            fprintf(stderr,"Decryption ERROR\n");
             return 0;
         }
         timeDecrypt = timeDecrypt + (double)(end - begin) / CLOCKS_PER_SEC;
         //printf("Finished Decryption\n");
+        fprintf(stderr,"Decryption OK\n");
         
         
         // printf("Dimension of the input database %ld\n", l);
@@ -310,23 +316,32 @@ int main(int argc, char *argv[]) {
     timesDec[3] = timesDec[3] / LOOP;
     timesDec[4] = timesDec[4] / LOOP;
 
+
+    printf("****************************************************************************\n");
+    printf("Parameters:\n");
+    printf("Dimension of the vectors: l = %ld\n", l);
+    printf("Maximum number of key queries: Q = %d\n", Q);
+    printf("Maximum bits of plaintext input: |X| = %d\n", bits_X);
+    printf("Maximum bits of function input: |Y| = %d\n", bits_Y);
+    printf("\n");
+
     printf("Times:\n");
     printf("Total SetUp time: %fs, of which\n", timeSetUp);
     printf("    Time for sampling each seed: %fs * 3\n", timesSetUp[0]);
     printf("    Time for doing FComb precomputations: %fs * 2\n", timesSetUp[1]);
 
-    printf("\n");
+    // printf("\n");
     printf("Total Encryption time: %fs, of which\n", timeEncrypt);
     printf("    Time for computing C (and D): %fs * 2\n", timesEnc[0]);
     printf("    Time for computing E: %fs\n", timesEnc[1]);
     
-    printf("\n");    
+    // printf("\n");    
     printf("Total Key Generation time: %fs, of which\n", timeKeyGen);
     printf("    Time for computing d_y: %fs\n", timesKeyGen[0]);
     printf("    Time for computing zk_y: %fs\n", timesKeyGen[1]);
     printf("    Time for computing the inner product: %fs * 2\n", timesKeyGen[2]);
     
-    printf("\n");    
+    // printf("\n");    
     printf("Total Decryption time: %fs, of which\n", timeDecrypt);
     printf("    Time for computing large multiexponentiation in numerator: %fs\n", timesDec[0]);
     printf("    Time for computing little multiexponentiation in denominator: %fs\n", timesDec[1]);
@@ -335,8 +350,8 @@ int main(int argc, char *argv[]) {
     printf("    Time for computing the discrete logarithm: %fs\n", timesDec[4]);
 
     // Compute sizes and print them
-    printf("\n");
-    printf("\n");
+    // printf("\n");
+    // printf("\n");
     printf("\n");
     printf("Sizes:\n");
     size_t p_bytes = MODULUS_LEN/8;
@@ -354,7 +369,7 @@ int main(int argc, char *argv[]) {
         printf("Database size: %ldKB\n", size_database/1024);
     }
     else printf("Database size: %ldB\n", size_database);
-    printf("\n");
+    // printf("\n");
 
     // msk: 3 seeds of size seed_size * sizeof(uint64_t)
     size_t size_msk = 3 * SEED_SIZE * sizeof(uint64_t);
@@ -368,7 +383,7 @@ int main(int argc, char *argv[]) {
         printf("Master secret key size: %ldKB\n", size_msk/1024);
     }
     else printf("Master secret key size: %ldB\n", size_msk);
-    printf("\n");
+    // printf("\n");
 
     // ciphertext: vector of elements in Zp and size l+2
     size_t size_ciphertext = (l + 2) * p_bytes;
@@ -379,7 +394,7 @@ int main(int argc, char *argv[]) {
         printf("Ciphertext size: %ldKB\n", size_ciphertext/1024);
     }
     else printf("Ciphertext key size: %ldB\n", size_ciphertext);
-    printf("\n");
+    // printf("\n");
 
     // fe_key: element d, element zk, and two elements in cfe_fe_key all in Zp
     size_t size_fe_key = 4 * p_bytes;
@@ -387,7 +402,8 @@ int main(int argc, char *argv[]) {
         printf("Functional decryption key size: %ldKB\n", size_fe_key/1024);
     }
     else printf("Functional decryption key size: %ldB\n", size_fe_key);
-    printf("\n");
+    // printf("\n");
+    printf("****************************************************************************\n");
 
     // we clear the memory
     mpz_clears(bound_X, bound_Y, NULL);

@@ -23,11 +23,23 @@
 # make
 
 # Execute the code for the preselected values
+printf "Process for ell = 10 has begun.\n"
 ./RFEDP 10 16 24 7 > results/Output1.txt
+printf "Process for ell = 10 has finished.\n\n"
+printf "Process for ell = 100 has begun.\n"
 ./RFEDP 100 16 21 7 > results/Output2.txt
+printf "Process for ell = 100 has finished.\n\n"
+printf "Process for ell = 1000 has begun.\n"
 ./RFEDP 1000 16 18 7 > results/Output3.txt
+printf "Process for ell = 1000 has finished.\n\n"
+printf "Process for ell = 10000 has begun.\n"
 ./RFEDP 10000 16 16 7 > results/Output4.txt
+printf "Process for ell = 10000 has finished.\n\n"
+printf "Process for ell = 100000 has begun.\n"
 ./RFEDP 100000 16 16 7 > results/Output5.txt
+printf "Process for ell = 100000 has finished.\n\n"
+printf "Process for ell = 1000000 has begun.\n"
 ./RFEDP 1000000 16 16 7 > results/Output6.txt
+printf "Process for ell = 1000000 has finished.\n\n"
 
 make clean

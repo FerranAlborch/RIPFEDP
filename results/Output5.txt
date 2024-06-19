@@ -1,32 +1,31 @@
+****************************************************************************
+Parameters:
+Dimension of the vectors: l = 100000
+Maximum number of key queries: Q = 16
+Maximum bits of plaintext input: |X| = 16
+Maximum bits of function input: |Y| = 7
+
 Times:
-Total SetUp time: 2.035438s, of which
-    Time for sampling each seed: 0.000209s * 3
-    Time for doing FComb precomputations: 1.017499s * 2
-
-Total Encryption time: 143.149175s, of which
-    Time for computing C (and D): 0.000849s * 2
-    Time for computing E: 143.113594s
-
-Total Key Generation time: 0.109013s, of which
-    Time for computing d_y: 0.005965s
-    Time for computing zk_y: 0.030464s
-    Time for computing the inner product: 0.012605s * 2
-
-Total Decryption time: 3.442544s, of which
-    Time for computing large multiexponentiation in numerator: 1.045031s
-    Time for computing little multiexponentiation in denominator: 0.014393s
-    Time for computing the division: 0.000027s
-    Time for computing the extra exponentiation: 0.000885s
-    Time for computing the discrete logarithm: 2.381312s
-
-
+Total SetUp time: 2.527250s, of which
+    Time for sampling each seed: 0.000003s * 3
+    Time for doing FComb precomputations: 1.263614s * 2
+Total Encryption time: 176.141187s, of which
+    Time for computing C (and D): 0.001063s * 2
+    Time for computing E: 176.100426s
+Total Key Generation time: 0.124245s, of which
+    Time for computing d_y: 0.007222s
+    Time for computing zk_y: 0.034341s
+    Time for computing the inner product: 0.015969s * 2
+Total Decryption time: 4.255656s, of which
+    Time for computing large multiexponentiation in numerator: 1.296110s
+    Time for computing little multiexponentiation in denominator: 0.018098s
+    Time for computing the division: 0.000032s
+    Time for computing the extra exponentiation: 0.001093s
+    Time for computing the discrete logarithm: 2.939275s
 
 Sizes:
 Database size: 781KB
-
 Master secret key size: 96B
-
 Ciphertext size: 36MB
-
 Functional decryption key size: 1KB
-
+****************************************************************************

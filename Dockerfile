@@ -36,5 +36,7 @@ COPY . .
 
 # Compile the library using the Makefile
 RUN make release
+RUN chmod +x ./RFEDP
+RUN chmod +x ./script.sh
 
 ENTRYPOINT /bin/bash

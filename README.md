@@ -90,6 +90,7 @@ This command will give you access to the command line inside the image. Then you
 
 To perform the analysis that gave the results published in the paper run the command
 ```
+chmod +x ./script.sh
 ./script.sh
 ```
 which will test for the specific parameters of the paper different $\ell$, from 10 to 1 000 000. The results will be output to ```results/OutputK.txt``` for each $\ell=10^K$.
