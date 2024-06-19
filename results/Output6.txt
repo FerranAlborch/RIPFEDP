@@ -6,22 +6,22 @@ Maximum bits of plaintext input: |X| = 16
 Maximum bits of function input: |Y| = 7
 
 Times:
-Total SetUp time: 2.628363s, of which
-    Time for sampling each seed: 0.000130s * 3
-    Time for doing FComb precomputations: 1.314043s * 2
-Total Encryption time: 1765.397691s, of which
-    Time for computing C (and D): 0.001062s * 2
-    Time for computing E: 1764.991506s
-Total Key Generation time: 1.204858s, of which
-    Time for computing d_y: 0.009456s
-    Time for computing zk_y: 0.369734s
-    Time for computing the inner product: 0.159126s * 2
-Total Decryption time: 22.766496s, of which
-    Time for computing large multiexponentiation in numerator: 13.103559s
-    Time for computing little multiexponentiation in denominator: 0.089008s
-    Time for computing the division: 0.000032s
-    Time for computing the extra exponentiation: 0.001100s
-    Time for computing the discrete logarithm: 9.561379s
+Total SetUp time: 2.173927s, of which
+    Time for sampling each seed: 0.000108s * 3
+    Time for doing FComb precomputations: 1.086816s * 2
+Total Encryption time: 1431.146949s, of which
+    Time for computing C (and D): 0.000982s * 2
+    Time for computing E: 1430.797997s
+Total Key Generation time: 1.012728s, of which
+    Time for computing d_y: 0.009116s
+    Time for computing zk_y: 0.311154s
+    Time for computing the inner product: 0.131059s * 2
+Total Decryption time: 18.843862s, of which
+    Time for computing large multiexponentiation in numerator: 10.841642s
+    Time for computing little multiexponentiation in denominator: 0.075298s
+    Time for computing the division: 0.000027s
+    Time for computing the extra exponentiation: 0.000902s
+    Time for computing the discrete logarithm: 7.916294s
 
 Sizes:
 Database size: 7MB
